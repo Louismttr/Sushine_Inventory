@@ -49,6 +49,7 @@
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Detalle_Movimiento.cs" />
     <Compile Include="Models\Empleado.cs" />
+    <Compile Include="Models\Inventario.cs" />
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\Producto.cs" />
     <Compile Include="Models\Puesto.cs" />

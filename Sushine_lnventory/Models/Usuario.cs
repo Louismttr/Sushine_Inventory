@@ -14,7 +14,7 @@ namespace Sushine_lnventory.Models
         public string Pass { get; set; }
         public string RolUsuario { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public Empleado codempleado { get; set; } // :D momento Ramdon de la Luisa
+        public Empleado codempleado { get; set; } // 
 
     }
 }
