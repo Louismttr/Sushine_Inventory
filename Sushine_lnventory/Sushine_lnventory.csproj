@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -63,6 +64,13 @@
     <Compile Include="Views\frm_Movimientos.Designer.cs">
       <DependentUpon>frm_Movimientos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\frm_PantallaInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frm_PantallaInicio.Designer.cs">
+      <DependentUpon>frm_PantallaInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThemeManager.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -71,9 +79,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Views\frm_Movimientos.resx">
       <DependentUpon>frm_Movimientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frm_PantallaInicio.resx">
+      <DependentUpon>frm_PantallaInicio.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -90,6 +102,21 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MenuC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EmpleadosC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProductosC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InventariosC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovimientosC.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

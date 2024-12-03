@@ -4,7 +4,7 @@ namespace Sushine_lnventory.Models
 {
     public class Empleado : Persona
     {
-        
+
         public int Id { get; set; }
         public int EstadoEmpleado { get; set; }
         public DateTime FechaCont { get; set; }
@@ -18,7 +18,6 @@ namespace Sushine_lnventory.Models
            this.EstadoEmpleado = estadoEmpleado;
            this.FechaCont = fechacont;
         }
-
 
     }
 }

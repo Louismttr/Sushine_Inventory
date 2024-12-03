@@ -15,6 +15,11 @@ namespace Sushine_lnventory.Models
         }
         #endregion
 
+        public Detalle_Movimiento()
+        {
+
+        }
+
         public int IdDetMov { get; set; }
         public Producto CodProducto { get; set; }
         public Empleado CodEmpleado { get; set; }
@@ -22,13 +27,13 @@ namespace Sushine_lnventory.Models
         public DateTime FechaMov { get; set; } 
         public int CantidadDetMov { get; set; }
 
-        public string RegistrarMovimiento(char codProducto, int codEmpleado, int tipoMovimiento, byte cantidad)
+        public string RegistrarMovimiento(char codProducto, int codEmpleado, int tipoMovimiento, int cantidad)
         {
             try
             {
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
-                    connection.Open(); // No sé si es necesario ponerlo aquí... es que no me acuerdo :ccccc
+                    connection.Open();
 
                     using (SqlCommand cmd = new SqlCommand("InsertarDetalleMov", connection))
                     {
