@@ -47,7 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Validations.cs" />
     <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\Conectar.cs" />
     <Compile Include="Models\Detalle_Movimiento.cs" />
     <Compile Include="Models\Empleado.cs" />
     <Compile Include="Models\Inventario.cs" />
@@ -58,6 +60,30 @@
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\frmProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmProductos.Designer.cs">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frm_Configuraciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frm_Configuraciones.Designer.cs">
+      <DependentUpon>frm_Configuraciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frm_Empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frm_Empleados.Designer.cs">
+      <DependentUpon>frm_Empleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frm_Inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frm_Inventario.Designer.cs">
+      <DependentUpon>frm_Inventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\frm_Movimientos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +107,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\frmProductos.resx">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frm_Configuraciones.resx">
+      <DependentUpon>frm_Configuraciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frm_Empleados.resx">
+      <DependentUpon>frm_Empleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frm_Inventario.resx">
+      <DependentUpon>frm_Inventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\frm_Movimientos.resx">
       <DependentUpon>frm_Movimientos.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,7 +139,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <None Include="Resources\Modificar.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MenuC.png" />
@@ -117,6 +155,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MovimientosC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Movimientos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Empleados.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Productos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AgregarE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Filtro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Descargar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DescargarC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Papelera.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

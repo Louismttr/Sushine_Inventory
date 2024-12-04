@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,37 @@ namespace Sushine_lnventory.Views
             container.Tag = childForm;
             childForm.Show();
         }
+
+        //Dinamismo botones
+        //public void SetButtonClickEffect(Button button, Color clickColor, Image clickImage, Color defaultColor, Image defaultImage)
+        //{
+        //    button.Click += (s, e) =>
+        //    {
+        //        // Cambiar color e imagen al hacer clic
+        //        button.ForeColor = clickColor;
+        //        button.Image = clickImage;
+        //    };
+
+        //    button.MouseLeave += (s, e) =>
+        //    {
+        //        // Restaurar color e imagen al salir del botón
+        //        button.ForeColor = defaultColor;
+        //        button.Image = defaultImage;
+        //    };
+        //}
+
+        //
+        public void Cbtn(Button button, Color clickBackColor, Color clickForeColor, Image clickImage)
+        {
+            button.Click += (s, e) =>
+            {
+                // Cambiar propiedades del botón al hacer clic
+                button.BackColor = clickBackColor;
+                button.ForeColor = clickForeColor;
+                button.Image = clickImage;
+            };
+        }
+
 
     }
 }

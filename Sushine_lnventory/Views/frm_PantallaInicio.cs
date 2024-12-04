@@ -6,21 +6,47 @@ namespace Sushine_lnventory.Views
 {
     public partial class frm_PantallaInicio : Form
     {
-        ThemeManager themeManager = new ThemeManager();
+        ThemeManager tM = new ThemeManager();
 
         public frm_PantallaInicio()
         {
             InitializeComponent();
         }
-
+        
         private void btn_Menu_Click(object sender, EventArgs e)
         {
-            themeManager.TogglePanelWidth(pnlMenuVertical, 188, 50);
+            tM.TogglePanelWidth(pnlMenuVertical, 188, 50); 
         }
 
+        //Abrir formularios
         private void btn_Movimientos_Click(object sender, EventArgs e)
         {
-            themeManager.LoadFormIntoPanel(pnlContenedor, new frm_Movimientos());
+            tM.LoadFormIntoPanel(pnlContenedor, new frm_Movimientos());
+        }
+
+        private void btn_Empleados_Click(object sender, EventArgs e)
+        {
+            tM.LoadFormIntoPanel(pnlContenedor, new frm_Empleados());
+        }
+
+        private void btn_Productos_Click(object sender, EventArgs e)
+        {
+            tM.LoadFormIntoPanel(pnlContenedor, new frmProductos());
+        }
+
+        private void btn_Inventarios_Click(object sender, EventArgs e)
+        {
+            tM.LoadFormIntoPanel(pnlContenedor, new frm_Inventario());
+        }
+
+        private void btn_Movimientos_Click_1(object sender, EventArgs e)
+        {
+            tM.LoadFormIntoPanel(pnlContenedor, new frm_Movimientos());
+        }
+
+        private void btn_Configuracion_Click(object sender, EventArgs e)
+        {
+            tM.LoadFormIntoPanel(pnlContenedor, new frm_Configuraciones());
         }
     }
 }

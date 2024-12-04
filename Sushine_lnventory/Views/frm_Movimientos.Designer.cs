@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.grpBox_Movimientos = new System.Windows.Forms.GroupBox();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.txtCostoUni = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.rb_Salida = new System.Windows.Forms.RadioButton();
             this.cmb_Empleados = new System.Windows.Forms.ComboBox();
             this.rb_Entrada = new System.Windows.Forms.RadioButton();
@@ -37,22 +42,26 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cmb_Productos = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnRegistrar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbFEmp2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbFProd2 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.mtbBuscar = new System.Windows.Forms.MaskedTextBox();
+            this.dGV_Movimientos = new System.Windows.Forms.DataGridView();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.grpBox_Movimientos.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGV_Movimientos)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBox_Movimientos
             // 
+            this.grpBox_Movimientos.Controls.Add(this.btnModificar);
+            this.grpBox_Movimientos.Controls.Add(this.btnRegistrar);
+            this.grpBox_Movimientos.Controls.Add(this.btnEliminar);
+            this.grpBox_Movimientos.Controls.Add(this.txtCostoUni);
+            this.grpBox_Movimientos.Controls.Add(this.label2);
             this.grpBox_Movimientos.Controls.Add(this.rb_Salida);
             this.grpBox_Movimientos.Controls.Add(this.cmb_Empleados);
             this.grpBox_Movimientos.Controls.Add(this.rb_Entrada);
@@ -61,22 +70,94 @@
             this.grpBox_Movimientos.Controls.Add(this.label3);
             this.grpBox_Movimientos.Controls.Add(this.cmb_Productos);
             this.grpBox_Movimientos.Controls.Add(this.label1);
-            this.grpBox_Movimientos.Controls.Add(this.btnRegistrar);
             this.grpBox_Movimientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpBox_Movimientos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(141)))), ((int)(((byte)(133)))));
-            this.grpBox_Movimientos.Location = new System.Drawing.Point(51, 50);
+            this.grpBox_Movimientos.Location = new System.Drawing.Point(30, 28);
             this.grpBox_Movimientos.Name = "grpBox_Movimientos";
-            this.grpBox_Movimientos.Size = new System.Drawing.Size(1005, 231);
+            this.grpBox_Movimientos.Size = new System.Drawing.Size(1043, 231);
             this.grpBox_Movimientos.TabIndex = 0;
             this.grpBox_Movimientos.TabStop = false;
             this.grpBox_Movimientos.Text = "Movimientos";
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(191)))), ((int)(((byte)(178)))));
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.Image = global::Sushine_lnventory.Properties.Resources.Modificar;
+            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar.Location = new System.Drawing.Point(874, 90);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(152, 50);
+            this.btnModificar.TabIndex = 11;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar.UseVisualStyleBackColor = false;
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(191)))), ((int)(((byte)(178)))));
+            this.btnRegistrar.FlatAppearance.BorderSize = 0;
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrar.Image = global::Sushine_lnventory.Properties.Resources.Guardar;
+            this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrar.Location = new System.Drawing.Point(874, 27);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(152, 50);
+            this.btnRegistrar.TabIndex = 10;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(191)))), ((int)(((byte)(178)))));
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Image = global::Sushine_lnventory.Properties.Resources.Papelera;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(874, 157);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(152, 50);
+            this.btnEliminar.TabIndex = 9;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            // 
+            // txtCostoUni
+            // 
+            this.txtCostoUni.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCostoUni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.txtCostoUni.Location = new System.Drawing.Point(307, 68);
+            this.txtCostoUni.Name = "txtCostoUni";
+            this.txtCostoUni.Size = new System.Drawing.Size(241, 33);
+            this.txtCostoUni.TabIndex = 8;
+            this.txtCostoUni.Text = "Costo Unitario";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(313, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(124, 23);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Costo Unitario";
             // 
             // rb_Salida
             // 
             this.rb_Salida.AutoSize = true;
             this.rb_Salida.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_Salida.ForeColor = System.Drawing.Color.Black;
-            this.rb_Salida.Location = new System.Drawing.Point(286, 86);
+            this.rb_Salida.Location = new System.Drawing.Point(625, 77);
             this.rb_Salida.Name = "rb_Salida";
             this.rb_Salida.Size = new System.Drawing.Size(90, 29);
             this.rb_Salida.TabIndex = 5;
@@ -87,10 +168,11 @@
             // cmb_Empleados
             // 
             this.cmb_Empleados.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_Empleados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cmb_Empleados.FormattingEnabled = true;
-            this.cmb_Empleados.Location = new System.Drawing.Point(286, 168);
+            this.cmb_Empleados.Location = new System.Drawing.Point(307, 168);
             this.cmb_Empleados.Name = "cmb_Empleados";
-            this.cmb_Empleados.Size = new System.Drawing.Size(216, 33);
+            this.cmb_Empleados.Size = new System.Drawing.Size(241, 33);
             this.cmb_Empleados.TabIndex = 6;
             this.cmb_Empleados.Text = "Empleados";
             // 
@@ -99,7 +181,7 @@
             this.rb_Entrada.AutoSize = true;
             this.rb_Entrada.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_Entrada.ForeColor = System.Drawing.Color.Black;
-            this.rb_Entrada.Location = new System.Drawing.Point(286, 51);
+            this.rb_Entrada.Location = new System.Drawing.Point(625, 42);
             this.rb_Entrada.Name = "rb_Entrada";
             this.rb_Entrada.Size = new System.Drawing.Size(104, 29);
             this.rb_Entrada.TabIndex = 4;
@@ -110,9 +192,10 @@
             // txtCantidad
             // 
             this.txtCantidad.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.txtCantidad.Location = new System.Drawing.Point(32, 168);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(194, 33);
+            this.txtCantidad.Size = new System.Drawing.Size(229, 33);
             this.txtCantidad.TabIndex = 3;
             this.txtCantidad.Text = "Cantidad";
             // 
@@ -121,7 +204,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(292, 132);
+            this.label4.Location = new System.Drawing.Point(313, 142);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 23);
             this.label4.TabIndex = 2;
@@ -132,7 +215,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(40, 132);
+            this.label3.Location = new System.Drawing.Point(29, 142);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 23);
             this.label3.TabIndex = 2;
@@ -141,10 +224,11 @@
             // cmb_Productos
             // 
             this.cmb_Productos.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_Productos.ForeColor = System.Drawing.Color.Gray;
             this.cmb_Productos.FormattingEnabled = true;
-            this.cmb_Productos.Location = new System.Drawing.Point(32, 68);
+            this.cmb_Productos.Location = new System.Drawing.Point(31, 68);
             this.cmb_Productos.Name = "cmb_Productos";
-            this.cmb_Productos.Size = new System.Drawing.Size(194, 33);
+            this.cmb_Productos.Size = new System.Drawing.Size(230, 33);
             this.cmb_Productos.TabIndex = 2;
             this.cmb_Productos.Text = "Producto";
             // 
@@ -153,35 +237,24 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(27, 42);
+            this.label1.Location = new System.Drawing.Point(29, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "Producto";
             // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(870, 168);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(116, 37);
-            this.btnRegistrar.TabIndex = 0;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.cmbFEmp2);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cmbFProd2);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(141)))), ((int)(((byte)(133)))));
-            this.groupBox1.Location = new System.Drawing.Point(491, 296);
+            this.groupBox1.Location = new System.Drawing.Point(488, 284);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(566, 105);
+            this.groupBox1.Size = new System.Drawing.Size(585, 105);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros y Descargas";
@@ -189,22 +262,25 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(430, 52);
+            this.button1.Image = global::Sushine_lnventory.Properties.Resources.DescargarC;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(416, 45);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 40);
+            this.button1.Size = new System.Drawing.Size(152, 48);
             this.button1.TabIndex = 2;
             this.button1.Text = "Descargar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // cmbFEmp2
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(214, 55);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(175, 33);
-            this.comboBox2.TabIndex = 8;
-            this.comboBox2.Text = "Empleados";
+            this.cmbFEmp2.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbFEmp2.FormattingEnabled = true;
+            this.cmbFEmp2.Location = new System.Drawing.Point(214, 55);
+            this.cmbFEmp2.Name = "cmbFEmp2";
+            this.cmbFEmp2.Size = new System.Drawing.Size(175, 33);
+            this.cmbFEmp2.TabIndex = 8;
+            this.cmbFEmp2.Text = "Empleados";
             // 
             // label6
             // 
@@ -217,15 +293,15 @@
             this.label6.TabIndex = 7;
             this.label6.Text = "Empleado";
             // 
-            // comboBox1
+            // cmbFProd2
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(16, 55);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(176, 33);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.Text = "Producto";
+            this.cmbFProd2.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbFProd2.FormattingEnabled = true;
+            this.cmbFProd2.Location = new System.Drawing.Point(16, 55);
+            this.cmbFProd2.Name = "cmbFProd2";
+            this.cmbFProd2.Size = new System.Drawing.Size(176, 33);
+            this.cmbFProd2.TabIndex = 4;
+            this.cmbFProd2.Text = "Producto";
             // 
             // label5
             // 
@@ -238,34 +314,38 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "Productos";
             // 
-            // dataGridView1
+            // dGV_Movimientos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(54, 420);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1000, 195);
-            this.dataGridView1.TabIndex = 2;
+            this.dGV_Movimientos.AllowUserToAddRows = false;
+            this.dGV_Movimientos.AllowUserToDeleteRows = false;
+            this.dGV_Movimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGV_Movimientos.Location = new System.Drawing.Point(32, 411);
+            this.dGV_Movimientos.Name = "dGV_Movimientos";
+            this.dGV_Movimientos.ReadOnly = true;
+            this.dGV_Movimientos.RowHeadersWidth = 62;
+            this.dGV_Movimientos.RowTemplate.Height = 28;
+            this.dGV_Movimientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dGV_Movimientos.Size = new System.Drawing.Size(1041, 263);
+            this.dGV_Movimientos.TabIndex = 2;
+            this.dGV_Movimientos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_Movimientos_CellClick);
+            this.dGV_Movimientos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_Movimientos_CellDoubleClick);
             // 
-            // mtbBuscar
+            // txtBuscar
             // 
-            this.mtbBuscar.Location = new System.Drawing.Point(77, 349);
-            this.mtbBuscar.Name = "mtbBuscar";
-            this.mtbBuscar.Size = new System.Drawing.Size(356, 26);
-            this.mtbBuscar.TabIndex = 3;
-            this.mtbBuscar.Text = "Busar...";
+            this.txtBuscar.Location = new System.Drawing.Point(41, 329);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(405, 26);
+            this.txtBuscar.TabIndex = 4;
+            this.txtBuscar.Text = "Buscar...";
             // 
             // frm_Movimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 643);
-            this.Controls.Add(this.mtbBuscar);
-            this.Controls.Add(this.dataGridView1);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1104, 686);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.dGV_Movimientos);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpBox_Movimientos);
             this.Name = "frm_Movimientos";
@@ -275,7 +355,7 @@
             this.grpBox_Movimientos.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGV_Movimientos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,7 +365,6 @@
 
         private System.Windows.Forms.GroupBox grpBox_Movimientos;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.ComboBox cmb_Empleados;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label4;
@@ -293,13 +372,18 @@
         private System.Windows.Forms.ComboBox cmb_Productos;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbFEmp2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbFProd2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.MaskedTextBox mtbBuscar;
+        private System.Windows.Forms.DataGridView dGV_Movimientos;
         private System.Windows.Forms.RadioButton rb_Entrada;
         private System.Windows.Forms.RadioButton rb_Salida;
+        private System.Windows.Forms.TextBox txtCostoUni;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnRegistrar;
     }
 }
