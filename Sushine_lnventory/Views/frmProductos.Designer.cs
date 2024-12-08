@@ -28,33 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.grpBox_Movimientos = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.txtSex = new System.Windows.Forms.TextBox();
+            this.cmbCategorias = new System.Windows.Forms.ComboBox();
+            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtNIdenti = new System.Windows.Forms.TextBox();
+            this.txtCostoUni = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtSN = new System.Windows.Forms.TextBox();
-            this.txtPN = new System.Windows.Forms.TextBox();
+            this.txtNamePro = new System.Windows.Forms.TextBox();
+            this.txtCodPro = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.dGV_Productos = new System.Windows.Forms.DataGridView();
+            this.eProv1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.grpBox_Movimientos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGV_Productos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProv1)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBox_Movimientos
             // 
-            this.grpBox_Movimientos.Controls.Add(this.comboBox1);
-            this.grpBox_Movimientos.Controls.Add(this.txtSex);
+            this.grpBox_Movimientos.Controls.Add(this.cmbCategorias);
+            this.grpBox_Movimientos.Controls.Add(this.txtPrecioVenta);
             this.grpBox_Movimientos.Controls.Add(this.label8);
-            this.grpBox_Movimientos.Controls.Add(this.txtNIdenti);
+            this.grpBox_Movimientos.Controls.Add(this.txtCostoUni);
             this.grpBox_Movimientos.Controls.Add(this.label5);
-            this.grpBox_Movimientos.Controls.Add(this.txtSN);
-            this.grpBox_Movimientos.Controls.Add(this.txtPN);
+            this.grpBox_Movimientos.Controls.Add(this.txtNamePro);
+            this.grpBox_Movimientos.Controls.Add(this.txtCodPro);
             this.grpBox_Movimientos.Controls.Add(this.label3);
             this.grpBox_Movimientos.Controls.Add(this.label2);
             this.grpBox_Movimientos.Controls.Add(this.label1);
@@ -68,24 +71,24 @@
             this.grpBox_Movimientos.TabStop = false;
             this.grpBox_Movimientos.Text = "Datos de Productos";
             // 
-            // comboBox1
+            // cmbCategorias
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(489, 80);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(196, 31);
-            this.comboBox1.TabIndex = 24;
-            this.comboBox1.Text = "Categorías";
+            this.cmbCategorias.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategorias.ForeColor = System.Drawing.Color.Gray;
+            this.cmbCategorias.FormattingEnabled = true;
+            this.cmbCategorias.Location = new System.Drawing.Point(489, 80);
+            this.cmbCategorias.Name = "cmbCategorias";
+            this.cmbCategorias.Size = new System.Drawing.Size(196, 31);
+            this.cmbCategorias.TabIndex = 24;
             // 
-            // txtSex
+            // txtPrecioVenta
             // 
-            this.txtSex.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSex.Location = new System.Drawing.Point(250, 170);
-            this.txtSex.Name = "txtSex";
-            this.txtSex.Size = new System.Drawing.Size(182, 30);
-            this.txtSex.TabIndex = 19;
-            this.txtSex.Text = "Precio de Venta";
+            this.txtPrecioVenta.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioVenta.ForeColor = System.Drawing.Color.Gray;
+            this.txtPrecioVenta.Location = new System.Drawing.Point(250, 170);
+            this.txtPrecioVenta.Name = "txtPrecioVenta";
+            this.txtPrecioVenta.Size = new System.Drawing.Size(182, 30);
+            this.txtPrecioVenta.TabIndex = 19;
             // 
             // label8
             // 
@@ -98,14 +101,14 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "Precio de Venta";
             // 
-            // txtNIdenti
+            // txtCostoUni
             // 
-            this.txtNIdenti.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNIdenti.Location = new System.Drawing.Point(32, 170);
-            this.txtNIdenti.Name = "txtNIdenti";
-            this.txtNIdenti.Size = new System.Drawing.Size(182, 30);
-            this.txtNIdenti.TabIndex = 15;
-            this.txtNIdenti.Text = "Costo Unitario";
+            this.txtCostoUni.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCostoUni.ForeColor = System.Drawing.Color.Gray;
+            this.txtCostoUni.Location = new System.Drawing.Point(32, 170);
+            this.txtCostoUni.Name = "txtCostoUni";
+            this.txtCostoUni.Size = new System.Drawing.Size(182, 30);
+            this.txtCostoUni.TabIndex = 15;
             // 
             // label5
             // 
@@ -118,23 +121,23 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Costo Unitario";
             // 
-            // txtSN
+            // txtNamePro
             // 
-            this.txtSN.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSN.Location = new System.Drawing.Point(250, 80);
-            this.txtSN.Name = "txtSN";
-            this.txtSN.Size = new System.Drawing.Size(182, 30);
-            this.txtSN.TabIndex = 11;
-            this.txtSN.Text = "Nombre del Producto";
+            this.txtNamePro.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNamePro.ForeColor = System.Drawing.Color.Gray;
+            this.txtNamePro.Location = new System.Drawing.Point(250, 80);
+            this.txtNamePro.Name = "txtNamePro";
+            this.txtNamePro.Size = new System.Drawing.Size(182, 30);
+            this.txtNamePro.TabIndex = 11;
             // 
-            // txtPN
+            // txtCodPro
             // 
-            this.txtPN.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPN.Location = new System.Drawing.Point(32, 80);
-            this.txtPN.Name = "txtPN";
-            this.txtPN.Size = new System.Drawing.Size(182, 30);
-            this.txtPN.TabIndex = 10;
-            this.txtPN.Text = "Código del Producto";
+            this.txtCodPro.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodPro.ForeColor = System.Drawing.Color.Gray;
+            this.txtCodPro.Location = new System.Drawing.Point(32, 80);
+            this.txtCodPro.Name = "txtCodPro";
+            this.txtCodPro.Size = new System.Drawing.Size(182, 30);
+            this.txtCodPro.TabIndex = 10;
             // 
             // label3
             // 
@@ -185,25 +188,30 @@
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
-            // textBox1
+            // txtBuscar
             // 
-            this.textBox1.Location = new System.Drawing.Point(27, 313);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(325, 26);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "Buscar...";
+            this.txtBuscar.Location = new System.Drawing.Point(27, 293);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(325, 26);
+            this.txtBuscar.TabIndex = 3;
+            this.txtBuscar.Text = "Buscar...";
             // 
-            // dataGridView1
+            // dGV_Productos
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 345);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1041, 324);
-            this.dataGridView1.TabIndex = 4;
+            this.dGV_Productos.AllowUserToOrderColumns = true;
+            this.dGV_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGV_Productos.Location = new System.Drawing.Point(27, 345);
+            this.dGV_Productos.Name = "dGV_Productos";
+            this.dGV_Productos.RowHeadersWidth = 62;
+            this.dGV_Productos.RowTemplate.Height = 28;
+            this.dGV_Productos.Size = new System.Drawing.Size(1041, 324);
+            this.dGV_Productos.TabIndex = 4;
+            // 
+            // eProv1
+            // 
+            this.eProv1.ContainerControl = this;
             // 
             // frmProductos
             // 
@@ -211,14 +219,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1104, 686);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dGV_Productos);
+            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.grpBox_Movimientos);
             this.Name = "frmProductos";
             this.Text = "frmProductos";
+            this.Load += new System.EventHandler(this.frmProductos_Load);
             this.grpBox_Movimientos.ResumeLayout(false);
             this.grpBox_Movimientos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGV_Productos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProv1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,18 +237,19 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grpBox_Movimientos;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox txtSex;
+        private System.Windows.Forms.ComboBox cmbCategorias;
+        private System.Windows.Forms.TextBox txtPrecioVenta;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtNIdenti;
+        private System.Windows.Forms.TextBox txtCostoUni;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtSN;
-        private System.Windows.Forms.TextBox txtPN;
+        private System.Windows.Forms.TextBox txtNamePro;
+        private System.Windows.Forms.TextBox txtCodPro;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.DataGridView dGV_Productos;
+        private System.Windows.Forms.ErrorProvider eProv1;
     }
 }

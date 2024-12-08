@@ -1,70 +1,94 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Sushine_lnventory.Models
 {
     public class Detalle_Movimiento
     {
-        #region Connection String
-            private readonly string _connectionString;
 
-        public Detalle_Movimiento(string connectionString)
-        {
-            _connectionString = connectionString;
-        }
-        #endregion
+        public int IdDetMov { get; set; }
+        public Producto CodProducto { get; set; }
+        public Empleado CodEmpleado { get; set; }
+        public Tipo_Movimiento CodTipoMovimiento { get; set; }
+        public DateTime FechaMov { get; set; }
+        public int CantidadDetMov { get; set; }
 
         public Detalle_Movimiento()
         {
 
         }
 
-        public int IdDetMov { get; set; }
-        public Producto CodProducto { get; set; }
-        public Empleado CodEmpleado { get; set; }
-        public Tipo_Movimiento CodTipoMovimiento { get; set; }
-        public DateTime FechaMov { get; set; } 
-        public int CantidadDetMov { get; set; }
-
-        public string RegistrarMovimiento(char codProducto, int codEmpleado, int tipoMovimiento, int cantidad)
+        public Detalle_Movimiento(int idDetMov, Producto codProducto, Empleado codEmpleado, Tipo_Movimiento codTipoMovimiento, DateTime fechaMov, int cantidadDetMov)
         {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(_connectionString))
-                {
-                    connection.Open();
+            IdDetMov = idDetMov;
+            CodProducto = codProducto;
+            CodEmpleado = codEmpleado;
+            CodTipoMovimiento = codTipoMovimiento;
+            FechaMov = fechaMov;
+            CantidadDetMov = cantidadDetMov;
+        }
 
-                    using (SqlCommand cmd = new SqlCommand("InsertarDetalleMov", connection))
+        //Listar ComboBox  s
+
+        public void RegistrarMovimiento(char codProd, int codEmpleado, int tipoMov, int cantidad)
+        {
+            
+            var connectionString = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
+
+            using (SqlConnection conector = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conector.Open();
+
+                    // Configuración del comando para el procedimiento almacenado
+                    using (SqlCommand cmd = new SqlCommand("InsertarDetalleMov", conector))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        // Agregar parámetros al procedimiento almacenado
-                        cmd.Parameters.AddWithValue("@Cod_Prod", codProducto);
+                        // Agregar los parámetros al comando
+                        cmd.Parameters.AddWithValue("@Cod_Prod", codProd);
                         cmd.Parameters.AddWithValue("@CodEmpleado", codEmpleado);
-                        cmd.Parameters.AddWithValue("@TipoMov", tipoMovimiento);
+                        cmd.Parameters.AddWithValue("@TipoMov", tipoMov);
                         cmd.Parameters.AddWithValue("@CantidadDetMov", cantidad);
 
                         // Ejecutar el procedimiento almacenado
-                        cmd.ExecuteNonQuery();
+                        int rowsAffected = cmd.ExecuteNonQuery();
 
-                        // Aquí va el close.connection?
+                        // Verificar si el procedimiento fue exitoso
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Movimiento registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se afectaron filas. Verifica los datos enviados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
-
-                    return "Movimiento registrado exitosamente.";
                 }
-            }
-            catch (SqlException ex)
-            {
-                // Manejar errores de SQL
-                return $"Error al registrar el movimiento: {ex.Message}";
-            }
-            catch (Exception ex)
-            {
-                // Manejar errores generales
-                return $"Error inesperado: {ex.Message}";
+                catch (SqlException sqlEx)
+                {
+                    MessageBox.Show($"Error de SQL al registrar el movimiento: {sqlEx.Message}", "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al registrar el movimiento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                finally
+                {
+                    if (conector.State == ConnectionState.Open)
+                    {
+                        conector.Close();
+                    }   
+                       
+                }   
             }
         }
+
     }
 
 

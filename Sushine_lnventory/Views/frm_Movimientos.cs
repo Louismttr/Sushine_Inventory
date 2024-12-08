@@ -12,117 +12,67 @@ namespace Sushine_lnventory.Views
 {
     public partial class frm_Movimientos : Form
     {
-        private Conectar con;
-        int renglon;
-
-        private readonly string _connectionString;
+        ProductosControll prod = new ProductosControll();
+        EmpleadoControll emp = new EmpleadoControll();
+        private Conectar con = new Conectar();
         Validations validations = new Validations();
+        private MovimientosControll Mov = new MovimientosControll();
 
         public frm_Movimientos()
         {
             InitializeComponent();
-
-        }
-        private void ListarMovimientos()
-        {
-            var constring = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
-
-            using (SqlConnection conector = new SqlConnection(constring))
-            {
-                try
-                {
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                    dataAdapter.SelectCommand = new SqlCommand("ListarDetMov", conector);
-                    DataTable dataTable = new DataTable();
-                    conector.Open();
-                    dataAdapter.Fill(dataTable);
-                    dGV_Movimientos.DataSource = dataTable;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error: {ex.Message}");
-                }
-            }
         }
 
 
         private void frm_Movimientos_Load(object sender, EventArgs e)
         {
-            ListarMovimientos();
-            //CargarProductosPorCodigo();
-            #region Efectos Txt y Cmb
-            validations.EffectCmb(cmb_Productos, "Producto", Color.Gray, Color.Black);
-            validations.EffectTxt(txtCostoUni, "Costo Unitario", Color.Gray, Color.Black);
-            validations.EffectCmb(cmb_Empleados, "Empleados", Color.Gray, Color.Black);
-            validations.EffectTxt(txtCantidad, "Cantidad", Color.Gray, Color.Black);
-            validations.EffectTxt(txtBuscar, "Buscar...", Color.Gray, Color.Black);
-            //filtro
-            validations.EffectCmb(cmbFProd2, "Producto", Color.Gray, Color.Black);
-            validations.EffectCmb(cmbFEmp2, "Empleado", Color.Gray, Color.Black);
-
-            #endregion
-        }
-
-        private void dGV_Movimientos_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            renglon = e.RowIndex;
-        }
-
-        private void dGV_Movimientos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (e.RowIndex >= 0)
-                {
-                    DataGridViewRow row = dGV_Movimientos.Rows[e.RowIndex];
-
-                    DateTime Fecha = Convert.ToDateTime(row.Cells["Fecha"].Value);
-                    int Producto = Convert.ToInt32(row.Cells["Producto"].Value);
-                    cmb_Productos.Text = Producto.ToString();
-
-                    float CostoUnitario = Convert.ToSingle(row.Cells["CostoUnitario"].Value);
-                    txtCostoUni.Text = CostoUnitario.ToString();
-
-                    float PrecioVenta = Convert.ToSingle(row.Cells["PrecioVenta"].Value);
-                    int Entradas = Convert.ToInt32(row.Cells["NumeroEntradas"].Value);
-                    int Salidas = Convert.ToInt32(row.Cells["NumeroSalidas"].Value);
-                    float TotalEntrada = Convert.ToSingle(row.Cells["TotalEntradas"].Value);
-                    float TotalSalida = Convert.ToSingle(row.Cells["TotalSalidas"].Value);
-
-
-                    //MessageBox.Show($"Fecha: {Fecha}, Producto: {Producto}, Costo: {CostoUnitario}");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al convertir los valores: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
+            con.ListarProDGV("ListarDetMov", dGV_Movimientos);
+            prod.CargarCodigosProducto(cmb_Productos);
+            emp.CargarCodigosEmpleado(cmb_Empleados);
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-          //try
-        //    {
-        //        // Capturar valores 
-        //        char codProd = Convert.ToChar(cmb_Productos.SelectedValue);
-        //        int codEmpleado = Convert.ToInt32(cmb_Empleados.SelectedValue);
-        //        int tipoMov = rb_Entrada.Checked ? 1 : 2; // Asumiendo: Entrada=1, Salida=2
-        //        int cantidad = int.Parse(txtCantidad.Text);
+            if (cmb_Productos.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar un producto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            //        // Instanciar y llamar al método
-            //        Detalle_Movimiento servicio = new Detalle_Movimiento();
+            // Validar que el empleado esté seleccionado
+            if (cmb_Empleados.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar un empleado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            //        string resultado = servicio.RegistrarMovimiento(codProd, codEmpleado, tipoMov, cantidad);
+            // Determinar el tipo de movimiento
+            int tipoMov = rb_Entrada.Checked ? 1 : rb_Salida.Checked ? 2 : 0;
+            if (tipoMov == 0)
+            {
+                MessageBox.Show("Debe seleccionar el tipo de movimiento (Entrada o Salida).", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            //        // Mostrar resultado en la interfaz
-            //        MessageBox.Show(resultado, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Validar que la cantidad sea un número válido
+            if (!int.TryParse(txtCantidad.Text, out int cantidad) || cantidad <= 0)
+            {
+                MessageBox.Show("Debe ingresar una cantidad válida mayor a cero.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
+            // Obtener valores seleccionados
+            char codProducto = Convert.ToChar(cmb_Empleados.SelectedValue);
+            int codEmpleado = Convert.ToInt32(cmb_Empleados.SelectedValue);
+
+            // Llamar al método para registrar el movimiento
+            Mov.RegistrarMovimiento(codProducto, codEmpleado, tipoMov, cantidad);
+
+        }
+
+        private void cmb_Productos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            con.RellenarCostoUnitario(cmb_Productos, txtCostoU);
         }
     }
 }
