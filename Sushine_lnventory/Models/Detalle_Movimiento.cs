@@ -10,10 +10,9 @@ namespace Sushine_lnventory.Models
     {
 
         public int IdDetMov { get; set; }
-        public Producto CodProducto { get; set; }
-        public Empleado CodEmpleado { get; set; }
-        public Tipo_Movimiento CodTipoMovimiento { get; set; }
-        public DateTime FechaMov { get; set; }
+        public char CodProducto { get; set; }
+        public int CodEmpleado { get; set; }
+        public int CodTipoMovimiento { get; set; }
         public int CantidadDetMov { get; set; }
 
         public Detalle_Movimiento()
@@ -21,21 +20,18 @@ namespace Sushine_lnventory.Models
 
         }
 
-        public Detalle_Movimiento(int idDetMov, Producto codProducto, Empleado codEmpleado, Tipo_Movimiento codTipoMovimiento, DateTime fechaMov, int cantidadDetMov)
+        public Detalle_Movimiento(int idDetMov, char codProducto, int codEmpleado, int codTipoMovimiento, int cantidadDetMov)
         {
             IdDetMov = idDetMov;
             CodProducto = codProducto;
             CodEmpleado = codEmpleado;
             CodTipoMovimiento = codTipoMovimiento;
-            FechaMov = fechaMov;
             CantidadDetMov = cantidadDetMov;
         }
 
-        //Listar ComboBox  s
-
-        public void RegistrarMovimiento(char codProd, int codEmpleado, int tipoMov, int cantidad)
+        public void RegistrarMovimiento(string codProd, int codEmpleado, int tipoMov, int cantidad)
         {
-            
+
             var connectionString = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
 
             using (SqlConnection conector = new SqlConnection(connectionString))
@@ -83,15 +79,13 @@ namespace Sushine_lnventory.Models
                     if (conector.State == ConnectionState.Open)
                     {
                         conector.Close();
-                    }   
-                       
-                }   
+                    }
+
+                }
+
             }
+
         }
 
     }
-
-
-
-
 }

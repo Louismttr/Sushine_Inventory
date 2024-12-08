@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.grpBox_Movimientos = new System.Windows.Forms.GroupBox();
+            this.cmbPuesto = new System.Windows.Forms.ComboBox();
+            this.cmbSexo = new System.Windows.Forms.ComboBox();
             this.mtxtFechaNa = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCelular = new System.Windows.Forms.TextBox();
-            this.txtPuestos = new System.Windows.Forms.TextBox();
-            this.txtSex = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -49,18 +49,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dGV_Empleados = new System.Windows.Forms.DataGridView();
             this.grpBox_Movimientos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGV_Empleados)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBox_Movimientos
             // 
+            this.grpBox_Movimientos.Controls.Add(this.cmbPuesto);
+            this.grpBox_Movimientos.Controls.Add(this.cmbSexo);
             this.grpBox_Movimientos.Controls.Add(this.mtxtFechaNa);
             this.grpBox_Movimientos.Controls.Add(this.label9);
             this.grpBox_Movimientos.Controls.Add(this.txtCelular);
-            this.grpBox_Movimientos.Controls.Add(this.txtPuestos);
-            this.grpBox_Movimientos.Controls.Add(this.txtSex);
             this.grpBox_Movimientos.Controls.Add(this.label6);
             this.grpBox_Movimientos.Controls.Add(this.label7);
             this.grpBox_Movimientos.Controls.Add(this.label8);
@@ -84,6 +84,22 @@
             this.grpBox_Movimientos.TabStop = false;
             this.grpBox_Movimientos.Text = "Datos de Empleado";
             // 
+            // cmbPuesto
+            // 
+            this.cmbPuesto.FormattingEnabled = true;
+            this.cmbPuesto.Location = new System.Drawing.Point(489, 164);
+            this.cmbPuesto.Name = "cmbPuesto";
+            this.cmbPuesto.Size = new System.Drawing.Size(181, 37);
+            this.cmbPuesto.TabIndex = 25;
+            // 
+            // cmbSexo
+            // 
+            this.cmbSexo.FormattingEnabled = true;
+            this.cmbSexo.Location = new System.Drawing.Point(247, 164);
+            this.cmbSexo.Name = "cmbSexo";
+            this.cmbSexo.Size = new System.Drawing.Size(185, 37);
+            this.cmbSexo.TabIndex = 24;
+            // 
             // mtxtFechaNa
             // 
             this.mtxtFechaNa.Location = new System.Drawing.Point(28, 257);
@@ -100,9 +116,9 @@
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(28, 231);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(175, 23);
+            this.label9.Size = new System.Drawing.Size(186, 23);
             this.label9.TabIndex = 22;
-            this.label9.Text = "Fecha de Nacimiento";
+            this.label9.Text = "Fecha de Contratación";
             // 
             // txtCelular
             // 
@@ -111,25 +127,6 @@
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(182, 30);
             this.txtCelular.TabIndex = 21;
-            this.txtCelular.Text = "N° de Celular";
-            // 
-            // txtPuestos
-            // 
-            this.txtPuestos.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPuestos.Location = new System.Drawing.Point(489, 170);
-            this.txtPuestos.Name = "txtPuestos";
-            this.txtPuestos.Size = new System.Drawing.Size(182, 30);
-            this.txtPuestos.TabIndex = 20;
-            this.txtPuestos.Text = "Puestos";
-            // 
-            // txtSex
-            // 
-            this.txtSex.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSex.Location = new System.Drawing.Point(250, 170);
-            this.txtSex.Name = "txtSex";
-            this.txtSex.Size = new System.Drawing.Size(182, 30);
-            this.txtSex.TabIndex = 19;
-            this.txtSex.Text = "Sexo";
             // 
             // label6
             // 
@@ -171,7 +168,6 @@
             this.txtNIdenti.Name = "txtNIdenti";
             this.txtNIdenti.Size = new System.Drawing.Size(182, 30);
             this.txtNIdenti.TabIndex = 15;
-            this.txtNIdenti.Text = "Cédula";
             // 
             // label5
             // 
@@ -191,7 +187,6 @@
             this.txtSA.Name = "txtSA";
             this.txtSA.Size = new System.Drawing.Size(182, 30);
             this.txtSA.TabIndex = 13;
-            this.txtSA.Text = "Segundo Apellido";
             // 
             // txtPA
             // 
@@ -200,8 +195,6 @@
             this.txtPA.Name = "txtPA";
             this.txtPA.Size = new System.Drawing.Size(182, 30);
             this.txtPA.TabIndex = 12;
-            this.txtPA.Text = "Primer Apellido";
-            this.txtPA.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // txtSN
             // 
@@ -210,8 +203,6 @@
             this.txtSN.Name = "txtSN";
             this.txtSN.Size = new System.Drawing.Size(182, 30);
             this.txtSN.TabIndex = 11;
-            this.txtSN.Text = "Segundo Nombre";
-            this.txtSN.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // txtPN
             // 
@@ -220,8 +211,6 @@
             this.txtPN.Name = "txtPN";
             this.txtPN.Size = new System.Drawing.Size(182, 30);
             this.txtPN.TabIndex = 10;
-            this.txtPN.Text = "Primer Nombre";
-            this.txtPN.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
             // 
@@ -292,15 +281,15 @@
             this.textBox1.TabIndex = 2;
             this.textBox1.Text = "Buscar...";
             // 
-            // dataGridView1
+            // dGV_Empleados
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 392);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1040, 280);
-            this.dataGridView1.TabIndex = 3;
+            this.dGV_Empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGV_Empleados.Location = new System.Drawing.Point(33, 409);
+            this.dGV_Empleados.Name = "dGV_Empleados";
+            this.dGV_Empleados.RowHeadersWidth = 62;
+            this.dGV_Empleados.RowTemplate.Height = 28;
+            this.dGV_Empleados.Size = new System.Drawing.Size(1037, 259);
+            this.dGV_Empleados.TabIndex = 3;
             // 
             // frm_Empleados
             // 
@@ -308,15 +297,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1104, 684);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dGV_Empleados);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.grpBox_Movimientos);
-            this.ForeColor = System.Drawing.Color.White;
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "frm_Empleados";
             this.Text = "frm_Empleados";
+            this.Load += new System.EventHandler(this.frm_Empleados_Load);
             this.grpBox_Movimientos.ResumeLayout(false);
             this.grpBox_Movimientos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGV_Empleados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,12 +329,12 @@
         private System.Windows.Forms.MaskedTextBox mtxtFechaNa;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCelular;
-        private System.Windows.Forms.TextBox txtPuestos;
-        private System.Windows.Forms.TextBox txtSex;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox cmbSexo;
+        private System.Windows.Forms.ComboBox cmbPuesto;
+        private System.Windows.Forms.DataGridView dGV_Empleados;
     }
 }

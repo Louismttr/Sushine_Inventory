@@ -27,8 +27,21 @@ namespace Sushine_lnventory.Views
         private void frm_Movimientos_Load(object sender, EventArgs e)
         {
             con.ListarProDGV("ListarDetMov", dGV_Movimientos);
+            #region Efectos comboBox y txt
+            validations.EffectCmb(cmb_Productos, "Producto", Color.Gray, Color.Black);
+            validations.EffectTxt(txtCantidad, "Cantidad", Color.Gray, Color.Black);
+            validations.EffectCmb(cmb_Empleados, "Empleados", Color.Gray, Color.Black);
+            validations.EffectTxt(txtBuscar, "Buscar...", Color.Gray, Color.Black);
+            //Filtros 
+            validations.EffectCmb(cmbFProd2, "Producto", Color.Gray, Color.Black);
+            validations.EffectCmb(cmbFEmp2, "Empleados", Color.Gray, Color.Black);
+            #endregion
+            //Cargando comboBox para registro
             prod.CargarCodigosProducto(cmb_Productos);
             emp.CargarCodigosEmpleado(cmb_Empleados);
+            //Cargando comboBox para filtros
+            con.CodCmbB(cmbFProd2, "Producto", "CodProducto");
+            con.CodCmbB(cmbFEmp2, "Empleado", "IdEmpleado");
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
@@ -62,17 +75,23 @@ namespace Sushine_lnventory.Views
             }
 
             // Obtener valores seleccionados
-            char codProducto = Convert.ToChar(cmb_Empleados.SelectedValue);
-            int codEmpleado = Convert.ToInt32(cmb_Empleados.SelectedValue);
+            string codProducto = cmb_Productos.Text;
+            int codEmpleado = Convert.ToInt32(cmb_Empleados.Text);
 
             // Llamar al método para registrar el movimiento
             Mov.RegistrarMovimiento(codProducto, codEmpleado, tipoMov, cantidad);
-
+            con.ListarProDGV("ListarDetMov", dGV_Movimientos);
         }
 
         private void cmb_Productos_SelectedIndexChanged(object sender, EventArgs e)
         {
             con.RellenarCostoUnitario(cmb_Productos, txtCostoU);
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            //buscar
+
         }
     }
 }

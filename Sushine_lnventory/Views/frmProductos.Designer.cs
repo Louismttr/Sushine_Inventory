@@ -40,13 +40,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnRegistrar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dGV_Productos = new System.Windows.Forms.DataGridView();
             this.eProv1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             this.grpBox_Movimientos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGV_Productos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eProv1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBox_Movimientos
@@ -172,27 +174,9 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Código del Producto";
             // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(191)))), ((int)(((byte)(178)))));
-            this.btnRegistrar.FlatAppearance.BorderSize = 0;
-            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.ForeColor = System.Drawing.Color.White;
-            this.btnRegistrar.Image = global::Sushine_lnventory.Properties.Resources.AgregarE;
-            this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrar.Location = new System.Drawing.Point(869, 158);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(152, 50);
-            this.btnRegistrar.TabIndex = 0;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegistrar.UseVisualStyleBackColor = false;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(27, 293);
+            this.txtBuscar.Location = new System.Drawing.Point(57, 285);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(325, 26);
             this.txtBuscar.TabIndex = 3;
@@ -213,12 +197,41 @@
             // 
             this.eProv1.ContainerControl = this;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Sushine_lnventory.Properties.Resources.Buscar;
+            this.pictureBox1.Location = new System.Drawing.Point(27, 288);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 23);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(191)))), ((int)(((byte)(178)))));
+            this.btnRegistrar.FlatAppearance.BorderSize = 0;
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrar.Image = global::Sushine_lnventory.Properties.Resources.AgregarE;
+            this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrar.Location = new System.Drawing.Point(869, 158);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(152, 50);
+            this.btnRegistrar.TabIndex = 0;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1104, 686);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dGV_Productos);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.grpBox_Movimientos);
@@ -229,6 +242,7 @@
             this.grpBox_Movimientos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGV_Productos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eProv1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,5 +265,6 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.DataGridView dGV_Productos;
         private System.Windows.Forms.ErrorProvider eProv1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

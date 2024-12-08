@@ -51,9 +51,9 @@ namespace Sushine_lnventory.Models
                             {
                                 categorias.Add(new Categoria
                                 {
-                                    Id = reader.GetInt32(0),                        // Mapea IdCategoria
-                                    Nombre_Ct = reader.GetString(1),               // Mapea NombreCategoria
-                                    Descripcion_Ct = reader.GetString(2),          // Mapea DescripcionCategoria
+                                    Id = reader.GetInt32(0),                        
+                                    Nombre_Ct = reader.GetString(1),               
+                                    Descripcion_Ct = reader.GetString(2),          
                                     EstadoCat = reader.GetBoolean(3)
                                 });
                             }

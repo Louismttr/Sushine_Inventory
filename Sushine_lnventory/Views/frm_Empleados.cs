@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sushine_lnventory.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,24 +13,15 @@ namespace Sushine_lnventory.Views
 {
     public partial class frm_Empleados : Form
     {
+        Conectar con = new Conectar();
         public frm_Empleados()
         {
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void frm_Empleados_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
+            con.ListarProDGV("ListarEmpleado", dGV_Empleados);
         }
     }
 }

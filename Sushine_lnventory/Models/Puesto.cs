@@ -11,5 +11,17 @@ namespace Sushine_lnventory.Models
         public int Id { get; set; }
         public string Nombre_Pt { get; set; }
         public string Descripcion_Pt { get; set; }
+
+        public Puesto()
+        {
+        }
+
+        public Puesto(int id, string nombre_Pt, string descripcion_Pt)
+        {
+            Id = id;
+            Nombre_Pt = nombre_Pt;
+            Descripcion_Pt = descripcion_Pt;
+        }
+
     }
 }
