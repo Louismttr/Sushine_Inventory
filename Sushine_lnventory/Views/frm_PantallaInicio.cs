@@ -44,9 +44,6 @@ namespace Sushine_lnventory.Views
             tM.LoadFormIntoPanel(pnlContenedor, new frm_Movimientos());
         }
 
-        private void btn_Configuracion_Click(object sender, EventArgs e)
-        {
-            tM.LoadFormIntoPanel(pnlContenedor, new frm_Configuraciones());
-        }
+        
     }
 }

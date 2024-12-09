@@ -1,12 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 using Sushine_lnventory.Models;
 
 namespace Sushine_lnventory.Controllers
 {
-    public class ProductosControll
+    public class ProductosControll 
     {
+        Producto modelo = new Producto();
+
+        public void CargarProductos(DataGridView dgv)
+        {
+            try
+            {
+                DataTable dt = modelo.ListarPro(); // Obtiene los movimientos del modelo
+                dgv.DataSource = dt; // Asigna los datos al DataGridView
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public void CargarCodigosProducto(ComboBox comboBox)
         {
             comboBox.Items.Clear();
@@ -82,6 +98,32 @@ namespace Sushine_lnventory.Controllers
                     precio,
                     Convert.ToInt32(cboCategoria.SelectedValue)
                 );
+            }
+        }
+
+        public DataTable BuscarProductos(string idPro)
+        {
+            if (!string.IsNullOrWhiteSpace(idPro)) // Verifica si el ID del producto no es nulo o vacío
+            {
+                try
+                {
+                    return modelo.ObtenerProductoPorId(idPro); // Llama al método del modelo para obtener el producto por ID
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Error al buscar movimientos: {ex.Message}", ex);
+                }
+            }
+            else
+            {
+                try
+                {
+                    return modelo.ListarPro(); // Devuelve todos los productos si no se proporciona un ID
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Error al listar productos: {ex.Message}", ex);
+                }
             }
         }
 

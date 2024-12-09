@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -105,12 +105,6 @@
     <Compile Include="Views\frmProductos.Designer.cs">
       <DependentUpon>frmProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\frm_Configuraciones.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\frm_Configuraciones.Designer.cs">
-      <DependentUpon>frm_Configuraciones.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\frm_Empleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +129,12 @@
     <Compile Include="Views\frm_PantallaInicio.Designer.cs">
       <DependentUpon>frm_PantallaInicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frm_Login.Designer.cs">
+      <DependentUpon>frm_Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ThemeManager.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -148,9 +148,6 @@
     </Compile>
     <EmbeddedResource Include="Views\frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\frm_Configuraciones.resx">
-      <DependentUpon>frm_Configuraciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frm_Empleados.resx">
       <DependentUpon>frm_Empleados.cs</DependentUpon>

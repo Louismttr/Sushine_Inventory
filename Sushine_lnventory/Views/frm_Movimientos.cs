@@ -16,6 +16,7 @@ namespace Sushine_lnventory.Views
         EmpleadoControll emp = new EmpleadoControll();
         private Conectar con = new Conectar();
         Validations validations = new Validations();
+        Validaciones_Models validaciones = new Validaciones_Models();
         private MovimientosControll Mov = new MovimientosControll();
 
         public frm_Movimientos()
@@ -183,6 +184,10 @@ namespace Sushine_lnventory.Views
             }
         }
 
-      
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validaciones.SoloNumeros(e);
+        }
+
     }
 }

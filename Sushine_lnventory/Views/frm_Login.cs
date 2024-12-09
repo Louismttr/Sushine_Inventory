@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sushine_lnventory.Views
 {
-    public partial class frm_Configuraciones : Form
+    public partial class frm_Login : Form
     {
-        public frm_Configuraciones()
+        public frm_Login()
         {
             InitializeComponent();
         }
